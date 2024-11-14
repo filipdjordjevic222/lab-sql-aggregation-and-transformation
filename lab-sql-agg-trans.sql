@@ -34,9 +34,10 @@ from film
 order by title asc;
 
 -- conc first and last name--
-select concat(first_name, " ", last_name) as customer_name,
+select concat(first_name, " ", last_name) as full_name,
 concat(substring(email, 1,3)) as email_prefix
-from customer;
+from customer
+order by last_name asc;
 
 -- total number of films released--
 
@@ -68,4 +69,4 @@ order by avg_duration desc;
 
 -- last name not repeated from actor--
 select last_name from actor group by last_name
-having count(last_name)>1;
+having count(last_name)=1;
